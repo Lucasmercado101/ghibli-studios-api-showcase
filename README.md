@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+Something I made to practice [Framer Motion](https://www.framer.com/motion/), [React Query](https://react-query.tanstack.com), [React Content Loader](https://skeletonreact.com/) and React with [Typescript](https://www.typescriptlang.org/).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It consumes the [Studio Ghibli API](https://ghibliapi.herokuapp.com/) and displays the data like so:
+
+![preview](preview.gif)
+
+-----
+
+# This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
