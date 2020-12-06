@@ -5,10 +5,9 @@ import SlideUp from "./SlideUp";
 const StyledTitle = styled.h2`
   overflow: hidden;
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: 900;
   color: #f2a365;
   display: inline;
-  white-space: nowrap;
 `;
 
 const Subtitle = styled.p`

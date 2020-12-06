@@ -3,16 +3,34 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Title from "./Title";
 import SlideUp from "./SlideUp";
+import People from "./People";
+import Species from "./Species";
 
-const StyledCard = styled.article`
+const wrapper: React.FC<{ className?: string }> = ({ className, children }) => {
+  return (
+    <motion.article
+      className={className}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {children}
+    </motion.article>
+  );
+};
+
+const StyledCard = styled(wrapper)`
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 8px;
   transition: box-shadow 0.2s;
   background: #222831;
   &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  }
+  .dropdown-toggle {
+    margin-top: 10px;
   }
 `;
 
@@ -51,27 +69,31 @@ const Card: React.FC<Props> = ({ data }) => {
     producer,
     release_date,
     people,
-    species,
-    vehicles
+    species
   } = data;
+
+  const thereIsPeople = people[0] !== "https://ghibliapi.herokuapp.com/people/";
+
   return (
     <StyledCard>
-      <motion.div variants={container} initial="hidden" animate="visible">
-        <header style={{ marginBottom: "15px" }}>
-          <Title title={title} release_date={release_date} />
-          <SlideUp
-            component={<Subtitle>Director &mdash; {director}</Subtitle>}
-          />
-          <SlideUp
-            component={<Subtitle>Producer &mdash; {producer}</Subtitle>}
-          />
-        </header>
-        <SlideUp component={<Paragraph>{description}</Paragraph>} />
-      </motion.div>
-      <br></br>
-      {/* <p>{species}</p>
-      <p>{vehicles}</p>
-      <p>{people}</p> */}
+      <header style={{ marginBottom: "15px" }}>
+        <Title title={title} release_date={release_date} />
+        <SlideUp component={<Subtitle>Director &mdash; {director}</Subtitle>} />
+        <SlideUp component={<Subtitle>Producer &mdash; {producer}</Subtitle>} />
+      </header>
+      <SlideUp component={<Paragraph>{description}</Paragraph>} />
+      {thereIsPeople && (
+        <SlideUp
+          className="dropdown-toggle"
+          component={<People people={people} />}
+        />
+      )}
+      {species && (
+        <SlideUp
+          className="dropdown-toggle"
+          component={<Species species={species} />}
+        />
+      )}
     </StyledCard>
   );
 };

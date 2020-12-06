@@ -2,23 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import variants from "./variants";
 
-type Props = { component?: React.ReactNode };
+type Props = { component?: React.ReactNode; className?: string };
 
-const SlideUp: React.FC<Props> = ({ children, component }) => {
-  if (!children && component)
-    // only one component
-    return (
-      <div style={{ overflow: "hidden" }}>
-        <motion.div style={{ marginBottom: 5 }} variants={variants}>
-          {component}
-        </motion.div>
-      </div>
-    );
-
+const SlideUp: React.FC<Props> = ({ children, component, className }) => {
   return (
-    <div style={{ overflow: "hidden" }}>
+    <div className={className} style={{ overflow: "hidden" }}>
       <motion.div style={{ marginBottom: 5 }} variants={variants}>
-        {children}
+        {component || children}
       </motion.div>
     </div>
   );

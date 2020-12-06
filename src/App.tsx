@@ -12,8 +12,9 @@ import Card from "./components/Card/Card";
 #ececec
 */
 
-axios.defaults.baseURL = "https://ghibliapi.herokuapp.com";
-// "https://cors-anywhere.herokuapp.com/https://ghibliapi.herokuapp.com";
+// axios.defaults.baseURL = "https://ghibliapi.herokuapp.com";
+axios.defaults.baseURL =
+  "https://cors-anywhere.herokuapp.com/https://ghibliapi.herokuapp.com";
 
 const container = {
   visible: {
@@ -24,8 +25,7 @@ const container = {
 };
 
 const variants = {
-  hidden: { y: 0, opacity: 0, display: "none" },
-  // hidden: { y: "50%", opacity: 0, display: "none" },
+  hidden: { y: "50%", opacity: 0, display: "none" },
   visible: { y: 0, opacity: 1, display: "block" }
 };
 
