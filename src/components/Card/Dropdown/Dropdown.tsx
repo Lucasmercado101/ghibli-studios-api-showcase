@@ -8,7 +8,7 @@ type Props = { title: string; onOpenClick?: () => {} };
 const DropdownTitle = styled.button`
   display: flex;
   justify-content: space-between;
-  color: #f2a365;
+  color: ${({ theme }) => theme.accent};
   font-weight: 500;
   background: none;
   border: none;

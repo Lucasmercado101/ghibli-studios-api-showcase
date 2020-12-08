@@ -32,7 +32,7 @@ const MyLoader = () => (
 );
 
 const Classification = styled.div`
-  color: #a9865c;
+  color: ${({ theme }) => theme.accentDark};
   display: inline;
 `;
 
@@ -41,7 +41,7 @@ const Species: React.FC<Props> = ({ species }) => {
     species,
     () => fetchUrls<Species>(species),
     {
-      enabled: false
+      enabled: false,
     }
   );
   const thereArePeople =

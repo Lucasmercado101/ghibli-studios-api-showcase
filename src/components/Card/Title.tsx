@@ -6,14 +6,14 @@ const StyledTitle = styled.h2`
   overflow: hidden;
   font-size: 1.8rem;
   font-weight: 900;
-  color: #f2a365;
+  color: ${({ theme }) => theme.accent};
   display: inline;
 `;
 
 const Subtitle = styled.p`
   overflow: hidden;
   font-size: 1.2rem;
-  color: #a9865c;
+  color: ${({ theme }) => theme.accentDark};
   font-weight: 500;
   display: inline;
   margin-left: 10px;

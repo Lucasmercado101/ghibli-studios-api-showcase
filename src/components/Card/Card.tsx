@@ -20,12 +20,11 @@ const wrapper: React.FC<{ className?: string }> = ({ className, children }) => {
 };
 
 const StyledCard = styled(wrapper)`
-  background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 25px;
   border-radius: 8px;
   transition: box-shadow 0.2s;
-  background: #222831;
+  background: ${({ theme }) => theme.secondaryDark};
   &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   }
@@ -38,23 +37,23 @@ const container = {
   visible: {
     transition: {
       delayChildren: 0.35,
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const Subtitle = styled.h3`
   overflow: hidden;
   font-size: 1rem;
   font-weight: 500;
-  color: #a9865c;
+  color: ${({ theme }) => theme.accentDark};
 `;
 
 const Paragraph = styled.p`
   overflow: hidden;
   font-size: 1.2rem;
   font-weight: 500;
-  color: #ececec;
+  color: ${({ theme }) => theme.primary};
   line-height: 1.3;
   display: block;
 `;
@@ -69,7 +68,7 @@ const Card: React.FC<Props> = ({ data }) => {
     producer,
     release_date,
     people,
-    species
+    species,
   } = data;
 
   const thereIsPeople = people[0] !== "https://ghibliapi.herokuapp.com/people/";
