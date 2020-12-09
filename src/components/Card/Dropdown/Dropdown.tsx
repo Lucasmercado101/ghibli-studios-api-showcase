@@ -17,7 +17,7 @@ const StyledDropdown = styled.section`
 const Dropdown: React.FC<Props> = ({ title, children, onOpen }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <StyledDropdown>
+    <StyledDropdown className="dropdown-toggle-title">
       <Title
         isExpanded={isExpanded}
         onClick={() => {

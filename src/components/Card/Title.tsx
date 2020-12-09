@@ -20,14 +20,19 @@ const Subtitle = styled.p`
   margin-left: 10px;
 `;
 
+const Container = styled(SlideUp)`
+  display: flex;
+  align-items: baseline;
+`;
+
 type Props = { title: string; subtitle?: string };
 
 const Title: React.FC<Props> = ({ title, subtitle }) => {
   return (
-    <SlideUp style={{ display: "flex", alignItems: "baseline" }}>
+    <Container>
       <StyledTitle>{title}</StyledTitle>
       <Subtitle>{subtitle}</Subtitle>
-    </SlideUp>
+    </Container>
   );
 };
 

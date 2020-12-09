@@ -37,9 +37,17 @@ const StyledCard = styled(wrapper)`
   &:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   }
-  .dropdown-toggle {
+  .dropdown-toggle-title + .dropdown-toggle-title {
     margin-top: 10px;
   }
+`;
+
+const StyledHeader = styled.header`
+  margin-bottom: 10px;
+`;
+
+const StyledParagraph = styled(Paragraph)`
+  margin-bottom: 10px;
 `;
 
 export type Props = {
@@ -58,22 +66,24 @@ const Card: React.FC<Props> = ({
   body,
   footer
 }) => {
+  const content = body || children;
+
   return (
     <StyledCard>
-      <header style={{ marginBottom: 10 }}>
+      <StyledHeader>
         {title && <Title title={title} subtitle={subtitle} />}
         {header}
-      </header>
-      {(body || children) && (
-        <SlideUp
-          component={
-            <Paragraph style={{ marginBottom: 5 }}>
-              {body || children}
-            </Paragraph>
-          }
-        />
+      </StyledHeader>
+
+      {content && (
+        <SlideUp component={<StyledParagraph>{content}</StyledParagraph>} />
       )}
-      <SlideUp component={footer} />
+
+      {footer && (
+        <footer>
+          <SlideUp component={footer} />
+        </footer>
+      )}
     </StyledCard>
   );
 };

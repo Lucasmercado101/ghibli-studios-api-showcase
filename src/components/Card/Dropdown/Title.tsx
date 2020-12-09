@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { AnimatePresence } from "framer-motion";
 import { FaChevronRight } from "react-icons/fa";
 
 const DropdownTitle = styled.button`
@@ -45,7 +44,7 @@ const Dropdown: React.FC<Props> = ({
   onClick
 }) => {
   return (
-    <DropdownTitle className="dropdown-toggle-title" onClick={onClick}>
+    <DropdownTitle onClick={onClick}>
       {children || <Title open={isExpanded}>{title}</Title>}
       <Chevron open={isExpanded} />
     </DropdownTitle>

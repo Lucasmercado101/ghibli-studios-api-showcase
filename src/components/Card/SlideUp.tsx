@@ -1,11 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import variants from "./variants";
 
 type Props = {
   component?: React.ReactNode;
   className?: string;
   style?: object;
+};
+
+const variants = {
+  hidden: { y: "50%", opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
 };
 
 const SlideUp: React.FC<Props> = ({

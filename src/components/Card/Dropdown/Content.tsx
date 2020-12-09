@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const fadeText: React.FC<{ className?: any }> = ({ children, className }) => {
   return (
-    <motion.ul
+    <motion.div
       className={className}
       initial="hidden"
       animate="visible"
@@ -11,7 +11,7 @@ const fadeText: React.FC<{ className?: any }> = ({ children, className }) => {
       variants={variants}
     >
       {children}
-    </motion.ul>
+    </motion.div>
   );
 };
 
@@ -31,14 +31,7 @@ const DropdownContent = styled(fadeText)`
   font-size: 1.2rem;
   margin: 0;
   padding: 0;
-  /* & li {
-    margin: 0;
-    padding: 0;
-  } */
-  /* & li::before {
-    content: "— ";
-    color: ${({ theme }) => theme.accentDark};
-  } */
+  overflow: hidden;
 `;
 
 export default DropdownContent;
