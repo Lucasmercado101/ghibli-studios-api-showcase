@@ -37,9 +37,9 @@ const container = {
   visible: {
     transition: {
       delayChildren: 0.35,
-      staggerChildren: 0.1,
-    },
-  },
+      staggerChildren: 0.1
+    }
+  }
 };
 
 const Subtitle = styled.h3`
@@ -68,7 +68,7 @@ const Card: React.FC<Props> = ({ data }) => {
     producer,
     release_date,
     people,
-    species,
+    species
   } = data;
 
   const thereIsPeople = people[0] !== "https://ghibliapi.herokuapp.com/people/";
