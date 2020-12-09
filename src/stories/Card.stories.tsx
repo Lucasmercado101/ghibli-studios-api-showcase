@@ -1,23 +1,13 @@
 import React from "react";
 import { Meta } from "@storybook/react/types-6-0";
 import ThemeProvider from "../Theme";
-import Card from "./Card";
-import Title from "./Title";
-import Paragraph from "./Paragraph";
-import SlideUp from "./SlideUp";
-import styled from "styled-components";
-import Dropdown from "./Dropdown/Dropdown";
+import Card from "../components/Card/Card";
+import SlideUp from "../components/Card/SlideUp";
+import Dropdown from "../components/Card/Dropdown/Dropdown";
 import { Story } from "@storybook/react/types-6-0";
-import { Props as CardProps } from "./Card";
-
-const Subtitle = styled.p`
-  overflow: hidden;
-  font-size: 1.2rem;
-  color: ${({ theme }) => theme.accentDark};
-  font-weight: 500;
-  display: inline;
-  margin: 0;
-`;
+import { Props as CardProps } from "../components/Card/Card";
+import Subtitle from "../components/Card/Subtitle";
+import FilmCard from "../pages/FilmCard/FilmCard";
 
 export default {
   title: "Components/Card",
@@ -64,6 +54,8 @@ Primary.args = {
   body:
     "When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home."
 };
+
+export const Secondary = () => <FilmCard />;
 
 // {
 //   "id": "cd3d059c-09f4-4ff3-8d63-bc765a5184fa",

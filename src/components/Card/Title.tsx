@@ -3,29 +3,30 @@ import styled from "styled-components";
 import SlideUp from "./SlideUp";
 
 const StyledTitle = styled.h2`
-  overflow: hidden;
   font-size: 1.8rem;
-  font-weight: 900;
   color: ${({ theme }) => theme.accent};
   display: inline;
+  font-weight: 900;
+  margin: 0;
+  margin-bottom: 5px;
 `;
 
 const Subtitle = styled.p`
-  overflow: hidden;
   font-size: 1.2rem;
   color: ${({ theme }) => theme.accentDark};
   font-weight: 500;
   display: inline;
+  margin: 0;
   margin-left: 10px;
 `;
 
-type Props = { title: string; release_date: string };
+type Props = { title: string; subtitle?: string };
 
-const Title: React.FC<Props> = ({ title, release_date }) => {
+const Title: React.FC<Props> = ({ title, subtitle }) => {
   return (
-    <SlideUp>
+    <SlideUp style={{ display: "flex", alignItems: "baseline" }}>
       <StyledTitle>{title}</StyledTitle>
-      <Subtitle>{release_date}</Subtitle>
+      <Subtitle>{subtitle}</Subtitle>
     </SlideUp>
   );
 };

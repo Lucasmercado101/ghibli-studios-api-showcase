@@ -17,20 +17,28 @@ const fadeText: React.FC<{ className?: any }> = ({ children, className }) => {
 
 const variants = {
   hidden: { height: 0, opacity: 0 },
-  visible: { height: "auto", opacity: 1, transition: { duration: 0.4 } },
-  hide: { height: 0, opacity: 0, transition: { duration: 0.4 } },
+  visible: {
+    height: "auto",
+    opacity: 1,
+    transition: { duration: 0.4 }
+  },
+  hide: { height: 0, opacity: 0, transition: { duration: 0.4 } }
 };
 
 const DropdownContent = styled(fadeText)`
   color: ${({ theme }) => theme.primary};
   line-height: 1.5;
   font-size: 1.2rem;
-  overflow: hidden;
-  margin-top: 5px;
-  & li::before {
+  margin: 0;
+  padding: 0;
+  /* & li {
+    margin: 0;
+    padding: 0;
+  } */
+  /* & li::before {
     content: "— ";
     color: ${({ theme }) => theme.accentDark};
-  }
+  } */
 `;
 
 export default DropdownContent;

@@ -1,48 +1,35 @@
 import React, { useState } from "react";
+import Title from "./Title";
 import styled from "styled-components";
+import Content from "./Content";
 import { AnimatePresence } from "framer-motion";
-import { FaChevronRight } from "react-icons/fa";
 
-type Props = { title: string; onOpenClick?: () => {} };
+type Props = {
+  title: string;
+  onOpen?: () => void;
+};
 
-const DropdownTitle = styled.button`
-  display: flex;
-  justify-content: space-between;
-  color: ${({ theme }) => theme.accent};
-  font-weight: 500;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.4rem;
-  width: 100%;
-  outline: none;
-  text-transform: capitalize;
+const StyledDropdown = styled.section`
+  margin: 0;
+  padding: 0;
 `;
 
-type StyledProps = { open: boolean };
-
-const Chevron = styled(FaChevronRight)<StyledProps>`
-  transform: ${({ open }) => (open ? "rotate(90deg)" : "")};
-  transition: transform 0.25s;
-`;
-
-const Dropdown: React.FC<Props> = ({ title, children, onOpenClick }) => {
-  const [expanded, setExpanded] = useState(false);
-
+const Dropdown: React.FC<Props> = ({ title, children, onOpen }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   return (
-    <>
-      <DropdownTitle
-        className="dropdown-toggle-title"
+    <StyledDropdown>
+      <Title
+        isExpanded={isExpanded}
         onClick={() => {
-          setExpanded(!expanded);
-          if (!expanded) onOpenClick && onOpenClick();
+          !isExpanded && onOpen && onOpen();
+          setIsExpanded(!isExpanded);
         }}
-      >
-        <p>{title}</p>
-        <Chevron open={expanded} />
-      </DropdownTitle>
-      <AnimatePresence>{expanded && children}</AnimatePresence>
-    </>
+        title={title}
+      />
+      <AnimatePresence>
+        {isExpanded && <Content>{children}</Content>}
+      </AnimatePresence>
+    </StyledDropdown>
   );
 };
 
