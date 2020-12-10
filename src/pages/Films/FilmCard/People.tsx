@@ -1,7 +1,7 @@
 import React from "react";
-import Dropdown from "../../components/Card/Dropdown/Dropdown";
+import Dropdown from "../../../components/Card/Dropdown/Dropdown";
 import { useQuery } from "react-query";
-import { fetchUrls } from "../../Api";
+import { fetchUrls } from "../../../Api";
 import Skeleton from "./DropdownContentSkeleton";
 import styled from "styled-components";
 
@@ -12,13 +12,13 @@ const ErrorText = styled.p`
   color: ${({ theme }) => theme.accent};
 `;
 
-const SpeciesList = styled.ul`
+const PeopleList = styled.ul`
   margin: 0;
   padding: 0;
   list-style-type: none;
 `;
 
-const StyledSpecies = styled.li`
+const StyledPerson = styled.li`
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -33,28 +33,28 @@ const StyledSpecies = styled.li`
 `;
 
 type Props = {
-  speciesArr: string[];
+  peopleArr: string[];
 };
 
-const People: React.FC<Props> = ({ speciesArr }) => {
+const People: React.FC<Props> = ({ peopleArr }) => {
   const { data, isError, refetch } = useQuery(
-    speciesArr,
-    () => fetchUrls<Species>(speciesArr),
+    [peopleArr, "unknown"],
+    () => fetchUrls<Person>(peopleArr),
     { enabled: false }
   );
 
   return (
-    <Dropdown title="species" onOpen={() => refetch()}>
+    <Dropdown title="people" onOpen={() => refetch()}>
       {isError ? (
         <ErrorText>Error: Could not fetch people</ErrorText>
       ) : !data ? (
         <Skeleton />
       ) : (
-        <SpeciesList>
-          {data.map((species, i) => (
-            <StyledSpecies key={i}>{species.name}</StyledSpecies>
+        <PeopleList>
+          {data.map((person, i) => (
+            <StyledPerson key={i}>{person.name}</StyledPerson>
           ))}
-        </SpeciesList>
+        </PeopleList>
       )}
     </Dropdown>
   );

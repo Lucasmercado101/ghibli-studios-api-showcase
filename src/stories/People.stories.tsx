@@ -1,10 +1,10 @@
-import Films from "../pages/Films/Films";
+import People from "../pages/People/People";
 import ThemeProvider from "../Theme";
 import { Story, Meta } from "@storybook/react/types-6-0";
 
 export default {
-  title: "Pages/Films",
-  component: Films,
+  title: "Pages/People",
+  component: People,
   decorators: [
     (Story) => (
       <ThemeProvider>
@@ -14,6 +14,6 @@ export default {
   ]
 } as Meta;
 
-const Template: Story = () => <Films />;
+const Template: Story = () => <People />;
 
 export const Primary = Template.bind({});

@@ -3,10 +3,8 @@ import { Meta } from "@storybook/react/types-6-0";
 import ThemeProvider from "../Theme";
 import Card from "../components/Card/Card";
 import SlideUp from "../components/Card/SlideUp";
-import { Story } from "@storybook/react/types-6-0";
-import { Props as CardProps } from "../components/Card/Card";
 import Subtitle from "../components/Card/Subtitle";
-import FilmCard from "../pages/FilmCard/FilmCard";
+import FilmCard from "../pages/Films/FilmCard/FilmCard";
 
 export default {
   title: "Components/Card",
@@ -20,10 +18,10 @@ export default {
   ]
 } as Meta;
 
-const Template: Story<CardProps> = ({ title, subtitle, body }) => (
+export const Primary = () => (
   <Card
-    title={title}
-    subtitle={subtitle}
+    title="Howl's Moving Castle"
+    subtitle="2004"
     header={
       <>
         <SlideUp
@@ -34,22 +32,9 @@ const Template: Story<CardProps> = ({ title, subtitle, body }) => (
         />
       </>
     }
-    body={body}
+    body="When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home."
   />
 );
-
-export const Primary = Template.bind({});
-Primary.args = {
-  title: "Howl's Moving Castle",
-  subtitle: "2004",
-  body:
-    "When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home."
-};
-Primary.decorators = [
-  (Story) => (
-    <div style={{ display: "flex", justifyContent: "center" }}>{Story}</div>
-  )
-];
 
 export const Secondary = () => (
   <FilmCard

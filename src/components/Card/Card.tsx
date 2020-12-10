@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Title from "./Title";
 import SlideUp from "./SlideUp";
-import Paragraph from "./Paragraph";
 
 const container = {
   visible: {
@@ -45,15 +44,11 @@ const StyledHeader = styled.header`
   margin-bottom: 10px;
 `;
 
-const StyledParagraph = styled(Paragraph)`
-  margin-bottom: 10px;
-`;
-
 export type Props = {
   title: string;
   subtitle?: string;
   header?: ReactNode | ReactNode[];
-  body?: string;
+  body?: ReactNode | ReactNode[];
   footer?: ReactNode | ReactNode[];
 };
 
@@ -74,9 +69,7 @@ const Card: React.FC<Props> = ({
         {header}
       </StyledHeader>
 
-      {content && (
-        <SlideUp component={<StyledParagraph>{content}</StyledParagraph>} />
-      )}
+      {content && <SlideUp component={content} />}
 
       {footer && (
         <footer>

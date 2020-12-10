@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
-import Card from "../../components/Card/Card";
+import Card from "../../../components/Card/Card";
 import People from "./People";
 import Species from "./Species";
+import Paragraph from "../../../components/Card/Paragraph";
 
 type Props = {
   body: string;
@@ -28,7 +29,7 @@ const FilmCard: React.FC<Props> = ({
       title={title}
       subtitle={subtitle}
       header={header}
-      body={body}
+      body={<Paragraph style={{ marginBottom: 10 }}>{body}</Paragraph>}
       footer={
         <>
           {thereArePeople && <People peopleArr={peopleArr!} />}

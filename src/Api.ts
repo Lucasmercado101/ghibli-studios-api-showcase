@@ -10,7 +10,11 @@ export const getFilms = function () {
 };
 
 export const getPeople = function () {
-  return axiosInstance.get<Films>("/films").then((resp) => resp.data);
+  return axiosInstance.get<People>("/people").then((resp) => resp.data);
+};
+
+export const getSpeciesByID = function (urlWithId: string) {
+  return axiosInstance.get<Species>(urlWithId).then((resp) => resp.data);
 };
 
 // -----------------------------------

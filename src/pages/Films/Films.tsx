@@ -1,12 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import FilmCard from "./FilmCard/FilmCard";
 import { useQuery } from "react-query";
-import { getFilms } from "../Api";
+import { getFilms } from "../../Api";
 import styled from "styled-components";
-import SlideUp from "../components/Card/SlideUp";
-import Subtitle from "../components/Card/Subtitle";
-import FilmSkeletonLoader from "./FilmCard/CardSkeleton";
-import Card from "../components/Card/Card";
+import SlideUp from "../../components/Card/SlideUp";
+import Subtitle from "../../components/Card/Subtitle";
+import FilmSkeletonLoader from "../../components/Card/CardSkeleton";
+import Card from "../../components/Card/Card";
 
 const container = {
   visible: {
@@ -57,7 +57,7 @@ const Films: React.FC = () => {
       {data ? (
         <Grid as={containerDiv}>
           {data.map((film) => (
-            <motion.li variants={variants}>
+            <motion.li key={film.id} variants={variants}>
               <FilmCard
                 title={film.title}
                 subtitle={film.release_date}

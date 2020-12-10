@@ -18,6 +18,7 @@ const Subtitle = styled.p`
   display: inline;
   margin: 0;
   margin-left: 10px;
+  text-transform: capitalize;
 `;
 
 const Container = styled(SlideUp)`

@@ -25,8 +25,8 @@ type Person = {
   eye_color: string;
   hair_color: string;
   films: string[];
-  species: string[];
-  url: string[];
+  species: string;
+  url: string;
 };
 
 type Species = {
@@ -36,6 +36,6 @@ type Species = {
   eye_colors: string;
   hair_colors: string;
   people: string[];
-  films: string;
+  films: string[];
   url: string;
 };
