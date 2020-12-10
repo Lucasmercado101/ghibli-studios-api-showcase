@@ -44,6 +44,10 @@ const StyledHeader = styled.header`
   margin-bottom: 10px;
 `;
 
+const StringBody = styled.p`
+  color: ${({ theme }) => theme.primary};
+`;
+
 export type Props = {
   title: string;
   subtitle?: string;
@@ -69,7 +73,11 @@ const Card: React.FC<Props> = ({
         {header}
       </StyledHeader>
 
-      {content && <SlideUp component={content} />}
+      {content && typeof content === "string" ? (
+        <SlideUp component={<StringBody>{content}</StringBody>} />
+      ) : (
+        <SlideUp component={content} />
+      )}
 
       {footer && (
         <footer>

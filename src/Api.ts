@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
+const corsAnywhere = "";
+// const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
 
 const axiosInstance = axios.create({
   // baseURL: "https://ghibliapi.herokuapp.com"
