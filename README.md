@@ -1,3 +1,7 @@
+Codesandbox [Code](https://codesandbox.io/s/studio-ghibli-api-showcase-sandbox-xs4pg) | [Site](https://xs4pg.csb.app/)
+
+---
+
 Something I made to practice [Framer Motion](https://www.framer.com/motion/), [React Query](https://react-query.tanstack.com), [React Content Loader](https://skeletonreact.com/) and React with [Typescript](https://www.typescriptlang.org/) and also to learn to use [Storybook](https://storybook.js.org/).
 
 It consumes the [Studio Ghibli API](https://ghibliapi.herokuapp.com/) and displays the data like so:
