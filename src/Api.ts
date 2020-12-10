@@ -1,8 +1,10 @@
 import axios from "axios";
 
+const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
+
 const axiosInstance = axios.create({
-  baseURL: "https://ghibliapi.herokuapp.com"
-  // baseURL: "https://cors-anywhere.herokuapp.com/https://ghibliapi.herokuapp.com"
+  // baseURL: "https://ghibliapi.herokuapp.com"
+  baseURL: `${corsAnywhere}https://ghibliapi.herokuapp.com`
 });
 
 export const getFilms = function () {
@@ -28,21 +30,29 @@ export const getLocations = function () {
 };
 
 export const getSpeciesByID = function (urlWithId: string) {
-  return axiosInstance.get<Species>(urlWithId).then((resp) => resp.data);
+  return axiosInstance
+    .get<Species>(corsAnywhere + urlWithId)
+    .then((resp) => resp.data);
 };
 
 export const getFilmById = function (urlWithId: string) {
-  return axiosInstance.get<Film>(urlWithId).then((resp) => resp.data);
+  return axiosInstance
+    .get<Film>(corsAnywhere + urlWithId)
+    .then((resp) => resp.data);
 };
 
 export const getPersonById = function (urlWithId: string) {
-  return axiosInstance.get<Person>(urlWithId).then((resp) => resp.data);
+  return axiosInstance
+    .get<Person>(corsAnywhere + urlWithId)
+    .then((resp) => resp.data);
 };
 
 // -----------------------------------
 
 export const fetchUrls = async <T>(urls: string[]) => {
   return await Promise.all(
-    urls.map((url) => axios.get<T>(url).then((resp) => resp.data))
+    urls.map((url) =>
+      axios.get<T>(corsAnywhere + url).then((resp) => resp.data)
+    )
   );
 };
