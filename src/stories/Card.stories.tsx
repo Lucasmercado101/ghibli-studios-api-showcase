@@ -3,7 +3,6 @@ import { Meta } from "@storybook/react/types-6-0";
 import ThemeProvider from "../Theme";
 import Card from "../components/Card/Card";
 import SlideUp from "../components/Card/SlideUp";
-import Dropdown from "../components/Card/Dropdown/Dropdown";
 import { Story } from "@storybook/react/types-6-0";
 import { Props as CardProps } from "../components/Card/Card";
 import Subtitle from "../components/Card/Subtitle";

@@ -31,7 +31,6 @@ const StyledCard = styled(wrapper)`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 25px;
   border-radius: 8px;
-  max-width: 45ch;
   transition: box-shadow 0.2s;
   background: ${({ theme }) => theme.secondaryDark};
   &:hover {
