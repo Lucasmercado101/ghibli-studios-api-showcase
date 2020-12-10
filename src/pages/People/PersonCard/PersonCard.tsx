@@ -16,6 +16,7 @@ const StyledFilm = styled.li`
   padding: 0;
   font-size: 1.2rem;
   line-height: 1.6;
+  color: ${({ theme }) => theme.primary};
   &::before {
     content: "—";
     color: ${({ theme }) => theme.accentDark};
