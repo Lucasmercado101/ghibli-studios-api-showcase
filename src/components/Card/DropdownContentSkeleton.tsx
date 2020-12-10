@@ -7,7 +7,7 @@ const FilmContentDropdownSkeleton: React.FC = () => {
   return (
     <ContentLoader
       speed={2}
-      width="100%"
+      width="400"
       height={120}
       viewBox="0 0 400 120"
       backgroundColor={primary}

@@ -39,3 +39,29 @@ type Species = {
   films: string[];
   url: string;
 };
+
+type APILocations = APILocation[];
+
+type APILocation = {
+  id: string;
+  name: string;
+  climate: string;
+  terrain: string;
+  surface_water: string;
+  residents: string[];
+  films: string[];
+  url: string[];
+};
+
+type Vehicles = Vehicle[];
+
+type Vehicle = {
+  id: string;
+  name: string;
+  description: string;
+  vehicle_class: string;
+  length: string;
+  pilot: string;
+  films: string;
+  url: string;
+};

@@ -13,8 +13,30 @@ export const getPeople = function () {
   return axiosInstance.get<People>("/people").then((resp) => resp.data);
 };
 
+export const getSpecies = function () {
+  return axiosInstance.get<Species[]>("/species").then((resp) => resp.data);
+};
+
+export const getVehicles = function () {
+  return axiosInstance.get<Vehicles>("/vehicles").then((resp) => resp.data);
+};
+
+export const getLocations = function () {
+  return axiosInstance
+    .get<APILocations>("/locations")
+    .then((resp) => resp.data);
+};
+
 export const getSpeciesByID = function (urlWithId: string) {
   return axiosInstance.get<Species>(urlWithId).then((resp) => resp.data);
+};
+
+export const getFilmById = function (urlWithId: string) {
+  return axiosInstance.get<Film>(urlWithId).then((resp) => resp.data);
+};
+
+export const getPersonById = function (urlWithId: string) {
+  return axiosInstance.get<Person>(urlWithId).then((resp) => resp.data);
 };
 
 // -----------------------------------

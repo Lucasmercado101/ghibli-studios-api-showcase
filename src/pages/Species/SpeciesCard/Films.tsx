@@ -12,13 +12,13 @@ const ErrorText = styled.p`
   color: ${({ theme }) => theme.accent};
 `;
 
-const SpeciesList = styled.ul`
+const PeopleList = styled.ul`
   margin: 0;
   padding: 0;
   list-style-type: none;
 `;
 
-const StyledSpecies = styled.li`
+const StyledFilmItem = styled.li`
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -33,28 +33,28 @@ const StyledSpecies = styled.li`
 `;
 
 type Props = {
-  speciesArr: string[];
+  filmArr: string[];
 };
 
-const People: React.FC<Props> = ({ speciesArr }) => {
+const People: React.FC<Props> = ({ filmArr }) => {
   const { data, isError, refetch } = useQuery(
-    speciesArr,
-    () => fetchUrls<Species>(speciesArr),
+    [filmArr, "unknown"],
+    () => fetchUrls<Film>(filmArr),
     { enabled: false }
   );
 
   return (
-    <Dropdown title="species" onOpen={() => refetch()}>
+    <Dropdown title="films" onOpen={() => refetch()}>
       {isError ? (
-        <ErrorText>Error: Could not fetch people</ErrorText>
+        <ErrorText>Error: Could not fetch films</ErrorText>
       ) : !data ? (
         <Skeleton />
       ) : (
-        <SpeciesList>
-          {data.map((species, i) => (
-            <StyledSpecies key={i}>{species.name}</StyledSpecies>
+        <PeopleList>
+          {data.map((film, i) => (
+            <StyledFilmItem key={i}>{film.title}</StyledFilmItem>
           ))}
-        </SpeciesList>
+        </PeopleList>
       )}
     </Dropdown>
   );
