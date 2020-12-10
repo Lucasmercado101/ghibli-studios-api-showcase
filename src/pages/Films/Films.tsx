@@ -1,3 +1,4 @@
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FilmCard from "./FilmCard/FilmCard";
 import { useQuery } from "react-query";
